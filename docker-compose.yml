@@ -1,0 +1,31 @@
+services:
+  recorder:
+    build: .
+    image: discord-meeting-recorder:latest
+    container_name: discord-meeting-recorder
+    restart: unless-stopped
+    init: true                    # tini PID 1 -> clean Ctrl-C / SIGTERM shutdown
+    env_file:
+      - .env                      # DISCORD_BOT_TOKEN, GUILD_IDS, MEETINGS_DIR (overridden below)
+    environment:
+      # Override whatever MEETINGS_DIR is in .env — recordings live in the volume.
+      MEETINGS_DIR: /data
+      # Default: DB lives inside the `recordings` named volume (below) and
+      # persists across redeploys alongside the recordings.
+      DB_PATH: /data/recorder.db
+      # ALTERNATIVE — keep the SQLite DB as a plain file on the host disk
+      # (easy to back up / inspect with any sqlite3 client). Bind-mount a
+      # host DIRECTORY — never a single file: WAL journaling creates
+      # -wal/-shm sidecars next to the DB file — and point DB_PATH at it:
+      # DB_PATH: /db/recorder.db
+    volumes:
+      - recordings:/data
+      # - ./:/db        # uncomment together with the ALTERNATIVE DB_PATH
+      #                   # (Linux hosts: chown the host dir to UID 1000 — the
+      #                   # container runs as user `node`)
+    # Voice traffic is outbound-only (Discord WSS + UDP); no ports to publish.
+    # Note: the app appends "discord-meetings/<guildId>/" itself, so files land at
+    #   /data/discord-meetings/<guildId>/meeting-<timestamp>/...
+
+volumes:
+  recordings:

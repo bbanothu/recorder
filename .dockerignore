@@ -1,0 +1,13 @@
+node_modules/
+.env
+discord-meetings/
+*.log
+.git/
+test/
+CHANGELOG.md
+README.md
+SETUP.md
+Dockerfile
+docker-compose.yml
+.dockerignore
+mobile/

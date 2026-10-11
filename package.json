@@ -1,0 +1,34 @@
+{
+  "name": "discord-meeting-recorder",
+  "version": "3.0.2",
+  "description": "Discord per-user voice meeting recorder",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test && npm run test:scripts",
+    "test:scripts": "bash test/scripts/transcribe-track-recovery.test.sh && bash test/scripts/build-and-push.test.sh",
+    "start": "node src/index.js",
+    "notetaker": "node src/notetaker/index.js",
+    "notetaker:join": "node src/notetaker/join-now.js",
+    "notetaker:login": "node src/notetaker/login.js",
+    "notetaker:relabel": "node src/notetaker/relabel.js",
+    "phone-server": "node src/phone/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "@discordjs/voice": "^0.19.2",
+    "@snazzah/davey": "^0.1.12",
+    "discord.js": "^14.27.0",
+    "dotenv": "^18.0.0",
+    "imapflow": "^2.2.5",
+    "libsodium-wrappers": "^0.8.4",
+    "node-ical": "^0.27.3",
+    "opusscript": "^0.0.8",
+    "playwright-core": "^1.63.0"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "Phone Recorder",
+    "slug": "phone-recorder",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.billy.phonerecorder",
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "package": "com.billy.phonerecorder"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Phone Recorder records what your microphone hears so you can save a transcript of the last few minutes or hours."
+        }
+      ],
+      "expo-secure-store",
+      "expo-sharing",
+      "expo-sqlite",
+      "react-native-audio-api"
+    ],
+    "scheme": "phonerecorder"
+  }
+}

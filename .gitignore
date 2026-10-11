@@ -1,0 +1,8 @@
+node_modules/
+.env
+discord-meetings/
+*.log
+.DS_Store
+
+# Python sidecar bytecode cache
+__pycache__/

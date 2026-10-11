@@ -1,0 +1,7 @@
+{
+  "note": "Opus packets libopus rejects (truncated multi-frame packets, TOC 0xc5/0xd7), captured from a real Discord per-user track. Undecodable by design; contain no intelligible audio.",
+  "packets": [
+    "xcCDfoY24oYyAvus2bK3S0HNNnXN5oMvuf7QiZYffEDBKHVBEkDQT0u8Z/hpr6h0rjWf2wRnMU1aTxkoRcnNn+rsASGs6qYdemA45apl2TzaIHeOT+NumNCQAQ36+g==",
+    "1+KYk9nRjgRCRe27oOvucboAwyyfBCgCLgqGsPKy2lLm5d2sN/w27Ju1QMPyyhM4DZoij679noVWEn7R8ugJo1BVb5VArPIgK/PF9hAZeFu8avVKiglrpZEZ+60CnJMBDfr6"
+  ]
+}
